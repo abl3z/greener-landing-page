@@ -1,0 +1,125 @@
+.hero-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.4);
+}
+
+.hero-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.hero-logo {
+  height: 48px;
+}
+
+.hero-contact {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.hero-contact:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-content {
+  color: white;
+  padding: 2rem;
+  z-index: 1;
+  max-width: 800px;
+  position: relative;
+  margin-top: 60px;
+}
+
+.animate-text {
+  font-size: 3.2rem;
+  font-weight: 700;
+  animation: fadeUp 1.2s ease-out forwards;
+  opacity: 0;
+  line-height: 1.3;
+}
+
+.animate-sub {
+  margin-top: 1.2rem;
+  font-size: 1.25rem;
+  animation: fadeUp 1.6s ease-out forwards;
+  opacity: 0;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background-color: #2B8761;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  animation: fadeUp 2s ease-out forwards;
+  opacity: 0;
+  text-decoration: none;
+}
+
+.cta:hover {
+  background-color: #256e50;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-text {
+    font-size: 2rem;
+  }
+
+  .animate-sub {
+    font-size: 1rem;
+  }
+
+  .cta {
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    height: 36px;
+  }
+}

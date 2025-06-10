@@ -1,0 +1,15 @@
+/* src/components/Footer.css */
+
+.footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.95rem;
+}
+
+.footer .team {
+  margin-top: 10px;
+  color: #c8e6c9;
+  font-size: 0.85rem;
+}
