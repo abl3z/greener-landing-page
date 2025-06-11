@@ -1,15 +1,25 @@
-/* src/components/Footer.css */
-
 .footer {
-  background-color: #2e7d32;
-  color: white;
+  background: rgba(43, 135, 97, 0.85); /* الأخضر الداكن + شفافية */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #ffffff;
+  padding: 32px 20px;
   text-align: center;
-  padding: 30px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.95rem;
+  font-weight: 400;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.2);
 }
 
-.footer .team {
-  margin-top: 10px;
-  color: #c8e6c9;
-  font-size: 0.85rem;
+.footer-title {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.footer-team {
+  color: #d0ffe3; /* أخضر ناعم */
+  font-size: 0.92rem;
+  font-weight: 400;
 }

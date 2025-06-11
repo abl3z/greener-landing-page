@@ -6,10 +6,30 @@ function Hero() {
   return (
     <header className="hero-container" id="home">
       <nav className="hero-header">
-        <a href="#home">
+        <button className="logo-btn" onClick={() => {
+          const heroSection = document.getElementById('home');
+          if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}>
           <img src={logo} alt="Greener Logo" className="hero-logo" />
-        </a>
-        <a href="mailto:gwsgreener@gmail.com" className="hero-contact">Contact Us</a>
+        </button>
+
+       <button
+  className="hero-contact"
+  onClick={() => {
+    const impactSection = document.getElementById('impact');
+    if (impactSection) {
+      impactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+>
+  Contact Us
+</button>
+
+
+
+
       </nav>
 
       <video autoPlay muted loop playsInline className="hero-bg">
@@ -24,7 +44,14 @@ function Hero() {
         <p className="animate-sub">
           Meet GWS-360: AI-Powered Waste Classification & Smart Monitoring.
         </p>
-        <a href="#about" className="cta">About Greener</a>
+        <button className="cta" onClick={() => {
+          const aboutSection = document.getElementById('about')
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' })
+          }
+        }}>
+          About Greener
+        </button>
       </div>
     </header>
   )

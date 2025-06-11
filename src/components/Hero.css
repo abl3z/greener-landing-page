@@ -24,32 +24,56 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
   padding: 1rem 2rem;
-  backdrop-filter: blur(10px);
+
+  /* Enhanced brightness for logo clarity */
+  background: rgba(255, 255, 255, 0.25); /* ← brighter transparent background */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .hero-logo {
   height: 48px;
+  filter: drop-shadow(0 0 1px #818a86); /* light outline for visibility */
+}
+
+
+.logo-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.logo-btn:focus {
+  outline: none;
 }
 
 .hero-contact {
-  color: white;
+  color: #ffffff;
   font-weight: 500;
-  text-decoration: none;
   font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.15);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 0.55rem 1.3rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .hero-contact:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.18);
 }
+
+
 
 .hero-content {
   color: white;
@@ -78,21 +102,27 @@
 .cta {
   display: inline-block;
   margin-top: 2rem;
-  padding: 0.8rem 2rem;
+  padding: 0.9rem 2rem;
   font-size: 1.1rem;
-  background-color: #2B8761;
+  font-weight: 600;
   color: white;
-  border: none;
-  border-radius: 8px;
+  background: rgba(43, 135, 97, 0.25); /* نفس الأخضر لكن شفاف */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  transition: background 0.3s ease;
+  text-decoration: none;
+  transition: all 0.3s ease;
   animation: fadeUp 2s ease-out forwards;
   opacity: 0;
-  text-decoration: none;
 }
 
 .cta:hover {
-  background-color: #256e50;
+  background: rgba(43, 135, 97, 0.4); /* أخضر أكثر وضوح */
+  transform: translateY(-2px);
+  color: #fff;
 }
 
 @keyframes fadeUp {

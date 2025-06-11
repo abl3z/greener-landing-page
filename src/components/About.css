@@ -1,12 +1,12 @@
 .about-container {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 4rem 2rem;
+  overflow: hidden;
+  background: #000;
 }
 
 .about-bg {
@@ -17,32 +17,37 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: brightness(0.3);
+  filter: brightness(0.28);
 }
 
 .about-content {
   position: relative;
-  z-index: 1;
-  max-width: 750px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 12px;
-  color: white;
+  z-index: 2;
+  max-width: 760px;
+  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
   animation: fadeUp 1.5s ease-out forwards;
   opacity: 0;
 }
 
 .about-title {
   font-size: 2.5rem;
-  color: #B1F398;
+  font-weight: 700;
   margin-bottom: 1rem;
+  color: #b5ffbf;
 }
 
 .about-text {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #eeeeee;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #f0f0f0;
+  font-weight: 400;
 }
 
 @keyframes fadeUp {
@@ -63,5 +68,9 @@
 
   .about-text {
     font-size: 1rem;
+  }
+
+  .about-content {
+    padding: 2rem 1.5rem;
   }
 }

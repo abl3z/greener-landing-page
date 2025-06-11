@@ -28,13 +28,22 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 700px;
-  background: rgba(255, 255, 255, 0.05);
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 3rem 2rem;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
 }
+
+/* Optional subtle hover if you want */
+.impact-overlay:hover {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+}
+
 
 .impact-title {
   font-size: 2.4rem;
@@ -77,19 +86,33 @@
   width: 100%;
   padding: 1rem;
   font-size: 1.05rem;
-  background-color: #2B8761;
-  border: none;
-  border-radius: 10px;
-  color: white;
+  background: rgba(43, 135, 97, 0.85); /* translucent green */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #ffffff;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .impact-form button:hover {
-  background-color: #256e50;
+  background: rgba(43, 135, 97, 1);
   transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(43, 135, 97, 0.35);
 }
+
+.field-note {
+  font-size: 0.85rem;
+  color: #d8d8d8;
+  margin-top: -0.4rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  padding-left: 3px;
+  font-style: italic;
+}
+
 
 .success-message {
   background-color: rgba(0, 128, 0, 0.2);
@@ -127,3 +150,37 @@
     transform: translateY(0);
   }
 }
+
+.impact-message {
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  animation: fadeIn 0.5s ease-in-out;
+  font-size: 1rem;
+}
+
+.impact-message.success {
+  background-color: rgba(39, 174, 96, 0.2);
+  color: #a8f0c5;
+}
+
+.impact-message.error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #ffb4b4;
+}
+
+
+.input-error {
+  display: block;
+  margin-top: 5px;
+  color: #ffb0b0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+

@@ -51,33 +51,43 @@
 }
 
 .feature-card {
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #2B8761;
+  background: rgba(255, 255, 255, 0.15); /* transparent white */
+  border-radius: 16px;
   padding: 2rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
-  border-left: 6px solid #2B8761;
+  color: #ffffff;
   animation: fadeUp 1.4s ease forwards;
   opacity: 0;
 }
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
 
 .feature-card h3 {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
+  font-weight: 600;
   margin-bottom: 0.75rem;
+  color: #d5ffe0;
 }
 
 .feature-card p {
-  color: #444;
+  color: #e2e2e2;
   font-size: 1rem;
   line-height: 1.6;
 }
 
+
 .icon-circle {
-  width: 18px;
-  height: 18px;
-  background-color: #2B8761;
+  width: 14px;
+  height: 14px;
+  background-color: #69d59d;
   border-radius: 50%;
   margin-bottom: 1rem;
   animation: pulse 2s infinite;
