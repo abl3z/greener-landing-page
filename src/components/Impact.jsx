@@ -2,11 +2,7 @@
 import './Impact.css'
 import impactVideo from '../assets/impact-video.mp4'
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
 
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function Impact() {
@@ -70,31 +66,28 @@ function Impact() {
     setIsSending(true)
     setStatusMessage({ type: '', text: '' })
 
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      setStatusMessage({
-        type: 'error',
-        text: 'We could not send your message right now. Please try again in a moment.'
-      })
-      setIsSending(false)
-      return
-    }
-
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          to_email: 'info@greenerjo.com',
-          from_name: formData.name.trim(),
-          from_email: formData.email.trim(),
-          organization: formData.organization.trim() || 'Not provided',
-          message: formData.message.trim(),
-          reply_to: formData.email.trim()
+      // Previous flow relied on browser-side EmailJS configuration.
+      // If env/template IDs are missing or misconfigured in production, submission fails.
+      // Server-side SMTP avoids client-side config drift and keeps delivery stable on Vercel.
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
-        {
-          publicKey: EMAILJS_PUBLIC_KEY
-        }
-      )
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          organization: formData.organization.trim(),
+          message: formData.message.trim()
+        })
+      })
+
+      const payload = await response.json()
+
+      if (!response.ok) {
+        throw new Error(payload?.error || 'Unable to send your message right now.')
+      }
 
       setStatusMessage({
         type: 'success',
@@ -106,7 +99,7 @@ function Impact() {
       console.error('Contact submission failed:', error)
       setStatusMessage({
         type: 'error',
-        text: 'We could not send your message right now. Please try again in a moment.'
+        text: error.message || 'Unable to send your message right now.'
       })
     } finally {
       setIsSending(false)
