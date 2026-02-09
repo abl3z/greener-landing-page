@@ -4,7 +4,7 @@ import featuresVideo from '../assets/features-bg.mp4'
 
 function Features() {
   return (
-    <section className="features-section" id="features">
+    <section className="features-section" id="features" data-header-theme="dark">
       <video className="features-bg" autoPlay muted loop playsInline>
         <source src={featuresVideo} type="video/mp4" />
         Your browser does not support the video tag.

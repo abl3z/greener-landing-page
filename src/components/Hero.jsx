@@ -1,59 +1,41 @@
 // src/components/Hero.jsx
 import './Hero.css'
-import logo from '../assets/greener-logo.png'
+import { smoothScrollToId } from '../utils/smoothScroll'
 
 function Hero() {
+  const scrollToId = sectionId => {
+    smoothScrollToId(sectionId)
+  }
+
   return (
-    <header className="hero-container" id="home">
-      <nav className="hero-header">
-        <button className="logo-btn" onClick={() => {
-          const heroSection = document.getElementById('home');
-          if (heroSection) {
-            heroSection.scrollIntoView({ behavior: 'smooth' });
-          }
-        }}>
-          <img src={logo} alt="Greener Logo" className="hero-logo" />
-        </button>
-
-       <button
-  className="hero-contact"
-  onClick={() => {
-    const impactSection = document.getElementById('impact');
-    if (impactSection) {
-      impactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }}
->
-  Contact Us
-</button>
-
-
-
-
-      </nav>
-
+    <section className="hero-section" id="home" data-header-theme="dark">
       <video autoPlay muted loop playsInline className="hero-bg">
         <source src="/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className="hero-content">
-        <h1 className="animate-text">
-          Greener – Smart Waste <br className="mobile-break" /> Management System
-        </h1>
-        <p className="animate-sub">
-          Meet GWS-360: AI-Powered Waste Classification & Smart Monitoring.
-        </p>
-        <button className="cta" onClick={() => {
-          const aboutSection = document.getElementById('about')
-          if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' })
-          }
-        }}>
-          About Greener
-        </button>
+      <div className="hero-overlay" />
+
+      <div className="hero-shell">
+        <div className="hero-main">
+          <p className="hero-kicker hero-fade hero-fade-1">SMART RECYCLING PLATFORM</p>
+          <h1 className="hero-title hero-fade hero-fade-2">
+            Greener - Smart Recycling, Powered by AI
+          </h1>
+          <p className="hero-description hero-fade hero-fade-3">
+            Greener automates waste sorting, rewards users, enables real-time monitoring, and supports sustainable digital ads in one calm system.
+          </p>
+          <div className="hero-actions hero-fade hero-fade-4">
+            <button className="hero-btn hero-btn-primary" onClick={() => scrollToId('contact')}>
+              Schedule a Demo
+            </button>
+            <button className="hero-btn hero-btn-secondary" onClick={() => scrollToId('contact')}>
+              Partner With Us
+            </button>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
   )
 }
 

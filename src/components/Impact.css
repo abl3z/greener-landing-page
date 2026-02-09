@@ -48,43 +48,80 @@
 .impact-title {
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: #fff;
 }
 
 .impact-description {
   font-size: 1.1rem;
   color: #e0e0e0;
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  margin-bottom: 2.55rem;
+  line-height: 1.72;
+}
+
+.floating-field {
+  position: relative;
 }
 
 .impact-form input,
 .impact-form textarea {
   width: 100%;
-  padding: 1rem;
-  margin-bottom: 1.25rem;
-  border: none;
+  padding: 1.25rem 1rem 0.72rem;
+  margin-bottom: 0;
+  border: 1px solid rgba(43, 135, 97, 0.18);
   border-radius: 10px;
   font-size: 1rem;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.96);
   color: #222;
-  transition: box-shadow 0.3s ease;
+  transition: border-color 0.24s ease, border-width 0.24s ease, box-shadow 0.24s ease;
+  line-height: 1.35;
+}
+
+.impact-form input[aria-invalid='true'],
+.impact-form textarea[aria-invalid='true'] {
+  border-width: 2px;
+  border-color: rgba(228, 126, 126, 0.9);
+  box-shadow: 0 0 0 2px rgba(228, 126, 126, 0.18);
 }
 
 .impact-form input:focus,
 .impact-form textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(43, 135, 97, 0.4);
+  border-width: 2px;
+  border-color: rgba(150, 230, 187, 0.98);
+  box-shadow: 0 0 0 2px rgba(150, 230, 187, 0.2);
 }
 
 .impact-form textarea {
   resize: none;
 }
 
+.floating-field > label {
+  position: absolute;
+  top: 0.95rem;
+  left: 0.92rem;
+  color: rgba(68, 94, 82, 0.85);
+  font-size: 0.95rem;
+  line-height: 1;
+  pointer-events: none;
+  transform-origin: left center;
+  transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.floating-field:focus-within > label,
+.floating-field.has-value > label {
+  transform: translateY(-0.58rem) scale(0.86);
+  color: rgba(43, 135, 97, 0.95);
+}
+
+.required-asterisk {
+  color: rgba(228, 126, 126, 0.95);
+}
+
 .impact-form button {
   width: 100%;
   padding: 1rem;
+  min-height: 54px;
   font-size: 1.05rem;
   background: rgba(43, 135, 97, 0.85); /* translucent green */
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -99,18 +136,26 @@
 
 .impact-form button:hover {
   background: rgba(43, 135, 97, 1);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 12px 30px rgba(43, 135, 97, 0.35);
+}
+
+.impact-form button:disabled {
+  opacity: 0.78;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .field-note {
   font-size: 0.85rem;
-  color: #d8d8d8;
-  margin-top: -0.4rem;
-  margin-bottom: 0.75rem;
+  color: rgba(216, 228, 222, 0.88);
+  margin-top: 0.52rem;
+  margin-bottom: 0.1rem;
   text-align: left;
-  padding-left: 3px;
-  font-style: italic;
+  padding-left: 2px;
+  font-style: normal;
+  line-height: 1.45;
 }
 
 
@@ -173,14 +218,35 @@
 
 .input-error {
   display: block;
-  margin-top: 5px;
+  margin-top: 8px;
   color: #ffb0b0;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 400;
   text-align: left;
+  line-height: 1.35;
 }
 
 .form-group {
   margin-bottom: 1.25rem;
 }
 
+.submit-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submit-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  animation: impactSpin 0.9s linear infinite;
+}
+
+@keyframes impactSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
