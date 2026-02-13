@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
 import { useEffect, useRef, useState } from 'react'
 import './Footer.css'
-import logo from '../assets/G-logo.png'
+import logo from '../assets/greener-logo.png'
 
 function Footer() {
   const footerRef = useRef(null)
