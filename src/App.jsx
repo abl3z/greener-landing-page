@@ -1,5 +1,6 @@
 // src/App.jsx
 import './App.css'
+import { Analytics } from '@vercel/analytics/react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
@@ -22,6 +23,7 @@ function App() {
       */}
       <Impact />
       <Footer />
+      <Analytics />
     </div>
   )
 }
