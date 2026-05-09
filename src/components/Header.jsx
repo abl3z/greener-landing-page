@@ -136,69 +136,72 @@ function Header() {
   ]
 
   return (
-    <nav
-      ref={headerRef}
-      className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}
-      data-theme={theme}
-      aria-label="Primary"
-    >
-      <button className="header-logo-btn" onClick={() => scrollToId('home')} aria-label="Back to top">
-        {/* Soft crossfade swap: full logo at top, icon-only logo after scroll. */}
-        <span className="header-logo-stack" aria-hidden="true">
-          <img
-            src={HEADER_LOGOS.default}
-            alt=""
-            className={`header-logo header-logo-default ${isScrolled ? 'is-hidden' : ''}`}
-          />
-          <img
-            src={HEADER_LOGOS.scrolled}
-            alt=""
-            className={`header-logo header-logo-scrolled ${isScrolled ? 'is-visible' : ''}`}
-          />
-        </span>
-        <span className="sr-only">Greener</span>
-      </button>
-
-      <div className="header-right">
-        <ul className="header-nav" aria-label="Section links">
-          {navItems.map(item => (
-            <li key={item.label}>
-              <button
-                className="header-nav-link"
-                onClick={() => scrollToId(item.targetId)}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        <button
-          className="header-contact-btn"
-          onClick={() => scrollToId('contact')}
-        >
-          Contact Us
+    <>
+      <nav
+        ref={headerRef}
+        className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}
+        data-theme={theme}
+        aria-label="Primary"
+      >
+        <button className="header-logo-btn" onClick={() => scrollToId('home')} aria-label="Back to top">
+          {/* Soft crossfade swap: full logo at top, icon-only logo after scroll. */}
+          <span className="header-logo-stack" aria-hidden="true">
+            <img
+              src={HEADER_LOGOS.default}
+              alt=""
+              className={`header-logo header-logo-default ${isScrolled ? 'is-hidden' : ''}`}
+            />
+            <img
+              src={HEADER_LOGOS.scrolled}
+              alt=""
+              className={`header-logo header-logo-scrolled ${isScrolled ? 'is-visible' : ''}`}
+            />
+          </span>
+          <span className="sr-only">Greener</span>
         </button>
-      </div>
 
-      {isMobile && (
-        <button
-          ref={menuToggleRef}
-          className={`header-menu-toggle ${isMenuOpen ? 'is-open' : ''}`}
-          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu-panel"
-          onClick={() => setIsMenuOpen(previous => !previous)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      )}
+        <div className="header-right">
+          <ul className="header-nav" aria-label="Section links">
+            {navItems.map(item => (
+              <li key={item.label}>
+                <button
+                  className="header-nav-link"
+                  onClick={() => scrollToId(item.targetId)}
+                >
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            className="header-contact-btn"
+            onClick={() => scrollToId('contact')}
+          >
+            Contact Us
+          </button>
+        </div>
+
+        {isMobile && (
+          <button
+            ref={menuToggleRef}
+            className={`header-menu-toggle ${isMenuOpen ? 'is-open' : ''}`}
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu-panel"
+            onClick={() => setIsMenuOpen(previous => !previous)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        )}
+      </nav>
 
       {isMobile && (
         <div
           className={`header-mobile-overlay ${isMenuOpen ? 'is-open' : ''}`}
+          data-theme={theme}
           aria-hidden={!isMenuOpen}
           onMouseDown={() => setIsMenuOpen(false)}
         >
@@ -214,14 +217,14 @@ function Header() {
             onMouseDown={event => event.stopPropagation()}
           >
             <ul className="header-mobile-nav" aria-label="Mobile section links">
-              {navItems.map((item, index) => (
-                <li key={item.label} style={{ animationDelay: `${index * 40}ms` }}>
+              {navItems.map(item => (
+                <li key={item.label}>
                   <button className="header-mobile-link" onClick={() => scrollToId(item.targetId)}>
                     {item.label}
                   </button>
                 </li>
               ))}
-              <li style={{ animationDelay: '120ms' }}>
+              <li>
                 <button className="header-mobile-contact" onClick={() => scrollToId('contact')}>
                   Contact Us
                 </button>
@@ -230,7 +233,7 @@ function Header() {
           </div>
         </div>
       )}
-    </nav>
+    </>
   )
 }
 
