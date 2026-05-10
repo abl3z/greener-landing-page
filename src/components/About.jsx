@@ -1,6 +1,10 @@
 // src/components/About.jsx
 import './About.css'
 import aboutVideo from '../assets/about-video.mp4'
+import graphIcon from '../assets/Icons/graph.svg'
+import trashBinIcon from '../assets/Icons/trash-bin.svg'
+import achievementIcon from '../assets/Icons/achievement.svg'
+import digitalMarketingIcon from '../assets/Icons/digital-marketing.svg'
 
 function About() {
   return (
@@ -28,42 +32,25 @@ function About() {
           <ul className="about-ops-list">
             <li>
               <span className="about-ops-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M4 14l4-4 3 3 6-6 3 3" />
-                  <path d="M4 19h16" />
-                </svg>
+                <img src={graphIcon} alt="" />
               </span>
               <span>AI Sorting Accuracy</span>
             </li>
             <li>
               <span className="about-ops-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M12 5a4 4 0 0 0-4 4v3.5L6.5 15v1h11v-1L16 12.5V9a4 4 0 0 0-4-4z" />
-                  <path d="M10.5 18a1.5 1.5 0 0 0 3 0" />
-                  <path d="M16.8 6.2l1.4-1.4" />
-                </svg>
+                <img src={trashBinIcon} alt="" />
               </span>
               <span>Smart Bin Capacity Alerts</span>
             </li>
             <li>
               <span className="about-ops-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M7 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                  <path d="M17 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
-                  <path d="M3.5 19a3.5 3.5 0 0 1 7 0" />
-                  <path d="M13 19a4 4 0 0 1 8 0" />
-                </svg>
+                <img src={achievementIcon} alt="" />
               </span>
               <span>Rewards &amp; User Engagement</span>
             </li>
             <li>
               <span className="about-ops-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <rect x="4" y="5" width="16" height="12" rx="2" />
-                  <path d="M8 20h8" />
-                  <path d="M9 9h6" />
-                  <path d="M9 12h4" />
-                </svg>
+                <img src={digitalMarketingIcon} alt="" />
               </span>
               <span>Measurable Digital Ads (DOOH)</span>
             </li>

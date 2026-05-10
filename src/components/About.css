@@ -94,10 +94,10 @@
 }
 
 .about-ops-icon {
-  width: 22px;
-  height: 22px;
+  width: 36px;
+  height: 36px;
   display: inline-flex;
-  flex: 0 0 22px;
+  flex: 0 0 36px;
   color: rgba(222, 255, 235, 0.86);
 }
 
@@ -109,6 +109,14 @@
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.about-ops-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(1) sepia(0.3) hue-rotate(130deg);
+  opacity: 0.92;
 }
 
 @keyframes fadeUp {

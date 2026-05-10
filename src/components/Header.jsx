@@ -205,7 +205,11 @@ function Header() {
           aria-hidden={!isMenuOpen}
           onMouseDown={() => setIsMenuOpen(false)}
         >
-          <div className="header-mobile-backdrop" />
+          <div
+            className="header-mobile-backdrop"
+            aria-hidden="true"
+          />
+
           <div
             id="mobile-menu-panel"
             ref={mobileMenuRef}
